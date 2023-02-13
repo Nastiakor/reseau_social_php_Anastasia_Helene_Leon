@@ -49,7 +49,7 @@
                 $userId = intval($_GET['user_id']);
 
                 /**
-                 * Etape 2: se connecter à la base de donnée
+                 * Etape 2: se connecter à la base de données
                  */
                 $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
 
@@ -78,13 +78,13 @@
                 /**
                  * Etape 4: à vous de jouer
                  */
-                //@todo: afficher le résultat de la ligne ci dessous, remplacer les valeurs ci-après puiseffacer la ligne ci-dessous
-                echo "<pre>" . print_r($user, 1) . "</pre>";
+                //@todo: afficher le résultat de la ligne ci dessous, remplacer les valeurs ci-après puis effacer la ligne ci-dessous
+                echo "<pre>" . print_r($user, 1) . "</pre>";    
                 ?>                
                 <article class='parameters'>
                     <h3>Mes paramètres</h3>
                     <dl>
-                        <dt>Pseudo</dt>
+                        <dt><?php echo $user['alias']?></dt>      
                         <dd>Félicie</dd>
                         <dt>Email</dt>
                         <dd>felicie@test.org</dd>
