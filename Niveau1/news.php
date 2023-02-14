@@ -130,7 +130,14 @@
                         </div>
                         <footer>
                             <small>♥<?php echo $post['like_number'] ?> </small>
-                            <a href="">#<?php echo $post['taglist'] ?></a>
+                            <?php 
+                        $tag = $post['taglist'];
+                        $arrayOfTags = explode(",",$tag);
+                        $index = 0;
+                        for ($index = 0; $index < count($arrayOfTags); $index++) {
+                            echo '<a href="">' . "#" . $arrayOfTags[$index] . '</a>' . ' ';
+                        }
+                    ?>
                         </footer>
                     </article>
                     <?php
