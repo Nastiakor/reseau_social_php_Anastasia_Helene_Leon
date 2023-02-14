@@ -118,8 +118,6 @@
                         </footer>
                     </article>
                 <?php } ?>
-
-
             </main>
         </div>
     </body>
