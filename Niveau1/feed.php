@@ -96,6 +96,9 @@
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
                  * A vous de retrouver comment faire la boucle while de parcours...
                  */
+                while ($post = $lesInformations->fetch_assoc())
+                {
+                    // echo "<pre>" . print_r($post, 1) . "</pre>";
                 ?>                
                 <article>
                     <h3>
@@ -117,9 +120,7 @@
                         <!-- <a href="">#piscitur</a>, -->
                     </footer>
                 </article>
-                <?php
-                // et de pas oublier de fermer ici vote while
-                ?>
+                <?php } ?>
 
 
             </main>
