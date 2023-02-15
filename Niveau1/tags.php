@@ -80,40 +80,11 @@
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
                  */
-                while ($post = $lesInformations->fetch_assoc())
-                {
+               ?>
 
-                    // echo "<pre>" . print_r($post, 1) . "</pre>";
-                    ?>                
-                    <article>
-                    <h3>
-                        <time datetime=<?php echo $post['created']?>><?php $date = new DateTime($post['created']); 
-                                echo $date->format('d F Y à H:i');
-                                ?> </time>
-                    </h3>
-                    <address>par <?php echo $post['author_name'] ?></address>
-                    <div>
-                    <p><?php echo $post['content'] ?></p>
-                        <!-- <p>Ceci est un autre paragraphe</p>
-                        <p>... de toutes manières il faut supprimer cet 
-                            article et le remplacer par des informations en 
-                            provenance de la base de donnée</p> -->
-                    </div>                                            
-                    <footer>
-                        <small>♥ <?php echo $post['like_number'] ?></small>
-                        <?php 
-                        $tag = $post['taglist'];
-                        $arrayOfTags = explode(",",$tag);
-                        $index = 0;
-                        for ($index = 0; $index < count($arrayOfTags); $index++) {
-                            echo '<a href="">' . "#" . $arrayOfTags[$index] . '</a>' . ' ';
-                        }
-                    ?>
-                        <!-- <a href="">#piscitur</a>, -->
-                    </footer>
-                    </article>
-                <?php } ?>
-
+               <?php
+               include 'whilepost.php'
+               ?>
 
             </main>
         </div>
