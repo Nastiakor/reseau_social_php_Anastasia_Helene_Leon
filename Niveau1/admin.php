@@ -35,11 +35,12 @@
                         echo("Échec de la requete : " . $mysqli->error);
                         exit();
                     }
-
-                /*
+                ?>        
+                <!-- /*
                  * Etape 3 : @todo : Afficher les mots clés en s'inspirant de ce qui a été fait dans news.php
                  * Attention à en pas oublier de modifier tag_id=321 avec l'id du mot dans le lien
-                 */
+                 */ -->
+                <?php
                     while ($tag = $lesInformations->fetch_assoc())
                     {
                     // echo "<pre>" . print_r($tag, 1) . "</pre>";
