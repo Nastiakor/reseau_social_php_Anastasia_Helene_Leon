@@ -9,4 +9,4 @@ $user = getUser($userId);
 
 $posts = getUserFeeds($userId);
 
-require 'templates/userWall.php';
+require 'templates/userFeed.php';

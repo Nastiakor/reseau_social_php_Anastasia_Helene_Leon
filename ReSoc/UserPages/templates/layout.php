@@ -38,9 +38,8 @@
                 </section>
             </aside>
             
-            <main>
-                <?= $content ?>
-            </main>
+            <?= $content ?>
+           
         </div>
     </body>
-</html>
+</html> 

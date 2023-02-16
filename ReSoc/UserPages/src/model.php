@@ -55,7 +55,7 @@ function getUserPosts ($userId) {
     // Connect to database
     $mysqli = callDataBase();
 
-    // Retrieve all user posts
+    // Retrieve all user posts from posts table
     $sqlQuery = "
         SELECT posts.content, 
         posts.created, 
@@ -85,7 +85,7 @@ function getUserFeeds ($userId) {
     // Connect to database
     $mysqli = callDataBase();
     
-    //Retrive all followers posts
+    //Retrive all followers posts from posts table
     $sqlQuery = "
         SELECT posts.content,
         posts.created,
@@ -112,9 +112,40 @@ function getUserFeeds ($userId) {
 
 }
 
+function getUserFollowing ($userId) {
+    // Connect to database
+    $mysqli = callDataBase();
+
+    // Retrive user following from followers table
+    $sqlQuery = "
+    SELECT users.*
+    FROM followers
+    LEFT JOIN users ON users.id=followers.following_user_id
+    WHERE followers.followed_user_id='$userId'
+    GROUP BY users.id
+    ";
+    $statement = $mysqli->query($sqlQuery);
+    if (!$statement) {
+        echo("Échec de la requete : " . $mysqli->error);
+        exit();
+    }
+
+    $users = [];
+    while ($row = $statement->fetch_assoc()) {
+        $user = [
+            'alias' => $row['alias'],
+            'id' => $row['id']
+        ];
+
+        $users[] = $user;
+    }
+
+    return $users;
+}
+
 function postsLoop ($statement) {
     $posts = [];
-    while($row = $statement->fetch_assoc()) {
+    while ($row = $statement->fetch_assoc()) {
         $post = [
             'created' => $row['created'],
             'alias' => $row['alias'],
