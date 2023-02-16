@@ -31,10 +31,10 @@
 
         <div id="wrapper" class='profile'>
             <aside>
-                <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
+                <img src="img/user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez <?= $pageDescription ?> de l'utilisatrice <?= $user['alias']?> n° <?= $user['id'] ?></p>
+                    <p>Sur cette page vous trouverez <?= $pageDescription ?> l'utilisatrice <?= $user['alias']?> n° <?= $user['id'] ?></p>
                 </section>
             </aside>
             

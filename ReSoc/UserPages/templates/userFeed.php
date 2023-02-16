@@ -1,5 +1,5 @@
-<?php $title = "ReSoC - Mur"; ?>
-<?php $pageDescription = "tous les messages de"; ?>
+<?php $title = "ReSoC - Flux"; ?>
+<?php $pageDescription = "tous les messages des utilisatrices auxquels est abonnée"; ?>
 
 <?php ob_start(); ?>
                            

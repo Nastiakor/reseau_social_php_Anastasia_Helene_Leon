@@ -7,6 +7,6 @@ $userId = intval($_GET['user_id']);
 
 $user = getUser($userId);
 
-$posts = getPosts($userId);
+$posts = getUserPosts($userId);
 
 require 'templates/userWall.php';

@@ -10,6 +10,21 @@ function callDataBase () {
     return $mysqli;
 }
 
+function getUser ($userId) {
+    // Connect to database
+    $mysqli = callDataBase();
+
+    // Retrive user information from users table
+    $sqlQuery = "SELECT * FROM users WHERE id= '$userId' ";
+    $statement = $mysqli->query($sqlQuery);
+    if (!$statement)
+    {
+        echo("Échec de la requete : " . $mysqli->error);
+    }
+
+    return $user = $statement->fetch_assoc();
+}
+
 function getUserSettings ($userId) {
     // Connect to database
     $mysqli = callDataBase();
@@ -36,14 +51,17 @@ function getUserSettings ($userId) {
     return $user = $statement->fetch_assoc();
 }
 
-function getPosts ($userId) {
+function getUserPosts ($userId) {
     // Connect to database
     $mysqli = callDataBase();
 
-    // Retrieve wall user posts
+    // Retrieve all user posts
     $sqlQuery = "
-        SELECT posts.content, posts.created, users.alias as alias, 
-        COUNT(likes.id) as likes, GROUP_CONCAT(DISTINCT tags.label) AS taglist 
+        SELECT posts.content, 
+        posts.created, 
+        users.alias as alias, 
+        COUNT(likes.id) as likes, 
+        GROUP_CONCAT(DISTINCT tags.label) AS taglist 
         FROM posts
         JOIN users ON  users.id=posts.user_id
         LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
@@ -59,6 +77,42 @@ function getPosts ($userId) {
         echo("Échec de la requete : " . $mysqli->error);
     }
 
+    return $posts = postsLoop($statement);
+
+}
+
+function getUserFeeds ($userId) {
+    // Connect to database
+    $mysqli = callDataBase();
+    
+    //Retrive all followers posts
+    $sqlQuery = "
+        SELECT posts.content,
+        posts.created,
+        users.alias as alias,  
+        count(likes.id) as likes,  
+        GROUP_CONCAT(DISTINCT tags.label) AS taglist 
+        FROM followers 
+        JOIN users ON users.id=followers.followed_user_id
+        JOIN posts ON posts.user_id=users.id
+        LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
+        LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
+        LEFT JOIN likes      ON likes.post_id  = posts.id 
+        WHERE followers.following_user_id='$userId' 
+        GROUP BY posts.id
+        ORDER BY posts.created DESC  
+        ";
+    $statement = $mysqli->query($sqlQuery);
+    if (!$statement)
+    {
+        echo("Échec de la requete : " . $mysqli->error);
+    }
+
+    return $posts = postsLoop($statement);
+
+}
+
+function postsLoop ($statement) {
     $posts = [];
     while($row = $statement->fetch_assoc()) {
         $post = [
@@ -71,22 +125,5 @@ function getPosts ($userId) {
 
         $posts[] = $post;
     }
-
     return $posts;
-
-}
-
-function getUser ($userId) {
-    // Connect to database
-    $mysqli = callDataBase();
-
-    // Retrive user information from users table
-    $sqlQuery = "SELECT * FROM users WHERE id= '$userId' ";
-    $statement = $mysqli->query($sqlQuery);
-    if (!$statement)
-    {
-        echo("Échec de la requete : " . $mysqli->error);
-    }
-
-    return $user = $statement->fetch_assoc();
 }

@@ -1,5 +1,5 @@
 <?php $title = "ReSoC - Paramètres"; ?>
-<?php $pageDescription = "les informations"; ?>
+<?php $pageDescription = "les informations de"; ?>
 
 <?php ob_start(); ?>
                            
