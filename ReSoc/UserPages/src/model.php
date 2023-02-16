@@ -130,17 +130,28 @@ function getUserFollowing ($userId) {
         exit();
     }
 
-    $users = [];
-    while ($row = $statement->fetch_assoc()) {
-        $user = [
-            'alias' => $row['alias'],
-            'id' => $row['id']
-        ];
+    return $users = followersLoop($statement);
+}
 
-        $users[] = $user;
+function getUserFollowed ($userId) {
+    // Connect to database
+    $mysqli = callDataBase();
+
+    // Retrive user followed from followers table
+    $sqlQuery = "
+    SELECT users.*
+    FROM followers
+    LEFT JOIN users ON users.id=followers.followed_user_id
+    WHERE followers.following_user_id='$userId'
+    GROUP BY users.id
+    ";
+    $statement = $mysqli->query($sqlQuery);
+    if (!$statement) {
+        echo("Échec de la requete : " . $mysqli->error);
+        exit();
     }
 
-    return $users;
+    return $users = followersLoop($statement);
 }
 
 function postsLoop ($statement) {
@@ -157,4 +168,17 @@ function postsLoop ($statement) {
         $posts[] = $post;
     }
     return $posts;
+}
+
+function followersLoop($statement) {
+    $users = [];
+    while ($row = $statement->fetch_assoc()) {
+        $user = [
+            'alias' => $row['alias'],
+            'id' => $row['id']
+        ];
+
+        $users[] = $user;
+    }
+    return $users;
 }

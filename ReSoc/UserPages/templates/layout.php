@@ -24,7 +24,7 @@
                 <ul>
                     <li><a href="settings.php?user_id=<?= $user['id']?>">Paramètres</a></li>
                     <li><a href="followers.php?user_id=<?= $user['id']?>">Mes suiveurs</a></li>
-                    <li><a href="subscriptions.php?user_id=5<?= $user['id']?>">Mes abonnements</a></li>
+                    <li><a href="subscriptions.php?user_id=<?= $user['id']?>">Mes abonnements</a></li>
                 </ul>
             </nav>
         </header>
