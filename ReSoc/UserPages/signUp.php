@@ -12,19 +12,11 @@ if ($conexionProcess) {
     $new_email = $_POST['email'];
     $new_alias = $_POST['alias'];
     $new_password = $_POST['password'];
+    //crypte password
+    $new_password= md5($new_password);
+};
 
-    //call fonction createUser               
-    $statement=createUser($new_email, $new_alias, $new_password);
+//call fonction createUser               
+$statement=createUser($new_email, $new_alias, $new_password);
     
-    
-    if (!$statement)
-    {
-        echo "L'inscription a échouée : " . $mysqli->error;
-    } else
-    {
-        echo "Votre inscription est un succès : " . $new_alias;
-        echo " <a href='login.php'>Connectez-vous.</a>";
-    }
-}
-
 require 'templates/userSignUp.php';

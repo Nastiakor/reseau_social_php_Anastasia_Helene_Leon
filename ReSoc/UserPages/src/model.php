@@ -205,15 +205,11 @@ function findUserByEmail ($emailAVerifier, $passwdAVerifier) {
 function createUser($new_email, $new_alias, $new_password) {
     // Connect to database
     $mysqli = callDataBase();
-
     //Escapes special characters in a string for use in an SQL query and avoid injection
     $new_email = $mysqli->real_escape_string($new_email);
     $new_alias = $mysqli->real_escape_string($new_alias);
-    $new_password= $mysqli->real_escape_string($new_passwd);
+    $new_password= $mysqli->real_escape_string($new_password);
     
-    //crypte password
-    $new_password= md5($new_password);
-
     //Add user information to database
     $sqlQuery = "INSERT INTO users (id, email, password, alias) "
         . "VALUES (NULL, "

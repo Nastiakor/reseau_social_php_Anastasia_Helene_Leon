@@ -17,10 +17,23 @@
                         <input type='submit'>
                     </form>
                     <p>
+                        <?php    
+                        if (!$user OR $user["password"] != $passwdAVerifier)
+                        {
+                            echo "IMPOSTEUR: MAIL OU PASSWORD INVALIDES";
+                            
+                        } else  
+                        {      
+                            $_SESSION['connected_id']=$user['id'];
+                            header("Location: feed.php?user_id=".$user['id']);
+                        }
+                        ?>
+                    </p>
+                    <p>
                         Pas de compte?
                         <a href='registration.php'>Inscrivez-vous.</a>
                     </p>
-
+    
                 </article>
             </main>
 
