@@ -13,24 +13,20 @@ if ($conexionProcess) {
     $emailAVerifier = $_POST['email'];
     $passwdAVerifier = $_POST['password'];
 
-    // $passwdAVerifier = $mysqli->real_escape_string($passwdAVerifier);
     // crypte password
     $passwdAVerifier = md5($passwdAVerifier);
     
-    $user = findUserByEmail ($emailAVerifier); 
+    $user = findUserByEmail($emailAVerifier, $passwdAVerifier); 
     
     if (!$user OR $user["password"] != $passwdAVerifier)
     {
         echo "IMPOSTEUR: MAIL OU PASSWORD INVALIDES";
         
     } else  
-    {
-        echo "Votre connexion est un succès : " . $user['alias'] . ".";
-        
+    {      
         $_SESSION['connected_id']=$user['id'];
-        header("Location: feed.php");
+        header("Location: feed.php?user_id=".$user['id']);
     }
 }
 
-        
 require 'templates/userLogin.php';

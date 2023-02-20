@@ -183,12 +183,14 @@ function followersLoop($statement) {
     return $users;
 }
 
-function findUserByEmail ($emailAVerifier) {
+function findUserByEmail ($emailAVerifier, $passwdAVerifier) {
     // Connect to database
     $mysqli = callDataBase();
 
     //Check email and password format
     $emailAVerifier = $mysqli->real_escape_string($emailAVerifier);
+    $passwdAVerifier = $mysqli->real_escape_string($passwdAVerifier);
+
     // Retrieve email and password from users Table
     $sqlQuery = "SELECT * "
             . "FROM users "
