@@ -182,3 +182,21 @@ function followersLoop($statement) {
     }
     return $users;
 }
+
+function findUserByEmail ($emailAVerifier) {
+    // Connect to database
+    $mysqli = callDataBase();
+
+    //Check email and password format
+    $emailAVerifier = $mysqli->real_escape_string($emailAVerifier);
+    // Retrieve email and password from users Table
+    $sqlQuery = "SELECT * "
+            . "FROM users "
+            . "WHERE "
+            . "email LIKE '" . $emailAVerifier . "'"
+            ;
+    // Etape 6: Vérification de l'utilisateur
+    $statement = $mysqli->query($sqlQuery);
+    return $user = $statement->fetch_assoc();
+}
+

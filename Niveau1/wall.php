@@ -80,7 +80,7 @@
                 ?>
 
                 <?php
-                include 'whilepost';
+                include 'whilepost.php';
                 ?>
                 
             </main>
