@@ -7,7 +7,7 @@
                     <h2>Connexion</h2>
          
                     <form action="login.php" method="post">
-                        <input type='hidden'name='email' value='???'>
+                        <input type='hidden'name='email'>
                         <dl>
                             <dt><label for='email'>E-Mail</label></dt>
                             <dd><input type='email'name='email'></dd>

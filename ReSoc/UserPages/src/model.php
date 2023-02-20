@@ -187,7 +187,7 @@ function findUserByEmail ($emailAVerifier, $passwdAVerifier) {
     // Connect to database
     $mysqli = callDataBase();
 
-    //Check email and password format
+    //Escapes special characters in a string for use in an SQL query and avoid injection
     $emailAVerifier = $mysqli->real_escape_string($emailAVerifier);
     $passwdAVerifier = $mysqli->real_escape_string($passwdAVerifier);
 
@@ -197,8 +197,30 @@ function findUserByEmail ($emailAVerifier, $passwdAVerifier) {
             . "WHERE "
             . "email LIKE '" . $emailAVerifier . "'"
             ;
-    // Etape 6: Vérification de l'utilisateur
+
     $statement = $mysqli->query($sqlQuery);
     return $user = $statement->fetch_assoc();
 }
 
+function createUser($new_email, $new_alias, $new_password) {
+    // Connect to database
+    $mysqli = callDataBase();
+
+    //Escapes special characters in a string for use in an SQL query and avoid injection
+    $new_email = $mysqli->real_escape_string($new_email);
+    $new_alias = $mysqli->real_escape_string($new_alias);
+    $new_password= $mysqli->real_escape_string($new_passwd);
+    
+    //crypte password
+    $new_password= md5($new_password);
+
+    //Add user information to database
+    $sqlQuery = "INSERT INTO users (id, email, password, alias) "
+        . "VALUES (NULL, "
+        . "'" . $new_email . "', "
+        . "'" . $new_password. "', "
+        . "'" . $new_alias . "'"
+        . ");";
+                        
+    return $statement = $mysqli->query($sqlQuery);
+}
