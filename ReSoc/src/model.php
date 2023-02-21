@@ -10,7 +10,7 @@ function callDataBase () {
     return $mysqli;
 }
 
-function getLabelTags () {
+function getTags () {
     // Connect to database
     $mysqli = callDataBase();
     //Retrive label from tags table

@@ -2,7 +2,7 @@
 
 require 'src/model.php';
 
-$tags = getLabelTags();
+$tags = getTags();
 
 require 'templates/tagNewsVu.php';
 

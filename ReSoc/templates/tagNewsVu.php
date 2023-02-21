@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<main class='contacts'>
+<main>
     <?php
     foreach ($tags as $tag) {
     ?>
