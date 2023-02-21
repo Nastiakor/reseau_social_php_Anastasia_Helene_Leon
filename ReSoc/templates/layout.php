@@ -11,35 +11,51 @@
     </head>
     
     <body>
-        <header>
-            <img src="img/resoc.jpg" alt="Logo de notre réseau social"/>
-            <nav id="menu">
-                <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=<?= $user['id']?>">Mur</a>
-                <a href="feed.php?user_id=<?= $user['id']?>">Flux</a>
-                <a href="tags.php?tag_id=">Mots-clés</a>
-            </nav>
-            <nav id="user">
-                <a href="#">Profil</a>
-                <ul>
-                    <li><a href="settings.php?user_id=<?= $user['id']?>">Paramètres</a></li>
-                    <li><a href="followers.php?user_id=<?= $user['id']?>">Mes suiveurs</a></li>
-                    <li><a href="subscriptions.php?user_id=<?= $user['id']?>">Mes abonnements</a></li>
-                </ul>
-            </nav>
-        </header>
 
-        <div id="wrapper" class='profile'>
-            <aside>
-                <img src="img/user.jpg" alt="Portrait de l'utilisatrice"/>
-                <section>
-                    <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez <?= $pageDescription ?> l'utilisatrice <?= $user['alias']?> n° <?= $user['id'] ?></p>
-                </section>
-            </aside>
-            
-            <?= $content ?>
-           
+<!-- Hamburger menu  -->
+    <header>
+    
+        <div class="hamburger-menu">
+
+        <!-- <img src="img/resoc.jpg" alt="Logo de notre réseau social"/> -->
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+        
+        <ul class="menu__box">
+            <li><a class="menu__item" href="news.php">Actualités</a></li>   
+            <li><a class="menu__item" href="wall.php?user_id=<?= $user['id']?>">Mur</a></li>
+            <li><a class="menu__item" href="feed.php?user_id=<?= $user['id']?>">Flux</a></li>
+            <li><a class="menu__item" href="tags.php?tag_id=">Mots-clés</a></li>
+        </ul>
+        <img src="img/logo_ada.png" alt="Logo de notre réseau social"/>
+    </div>
+    
+    
+
+<nav id="user">
+    <a href="#">▾ Profil</a>
+    <ul>
+        <li><a href="settings.php?user_id=5">Paramètres</a></li>
+        <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
+        <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
+    </ul>
+</nav>
+</header>
+
+<div id="wrapper" class='profile'>
+    <aside>
+        <img src="img/ada_profile_pic.jpg" alt="Portrait de l'utilisatrice"/>
+        <section>
+            <h3>Présentation</h3>
+            <p>Sur cette page vous trouverez <?= $pageDescription ?> l'utilisatrice <?= $user['alias']?> n° <?= $user['id'] ?></p>
+        </section>
+        <div>
+
         </div>
-    </body>
+    </aside>
+    <?= $content ?>
+</div>
+</body>
 </html> 
