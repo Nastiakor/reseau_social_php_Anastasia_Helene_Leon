@@ -10,6 +10,24 @@ function callDataBase () {
     return $mysqli;
 }
 
+function getLabelTags () {
+    // Connect to database
+    $mysqli = callDataBase();
+    //Retrive label from tags table
+    $sqlQuery = "SELECT * FROM tags ORDER BY tags.label ASC";
+    $statement = $mysqli->query($sqlQuery);
+
+    $tags = [];
+    while ($row = $statement->fetch_assoc()) {
+        $tag = [
+            'id' => $row['id'],
+            'label' => $row['label'],
+        ];
+        $tags[] = $tag;
+    }
+    return $tags;
+}
+
 function getUser ($userId) {
     // Connect to database
     $mysqli = callDataBase();
