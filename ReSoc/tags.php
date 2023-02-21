@@ -8,23 +8,9 @@
     </head>
     <body>
         <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
-            <nav id="menu">
-                <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
-                <a href="feed.php?user_id=5">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
-            </nav>
-            <nav id="user">
-                <a href="#">Profil</a>
-                <ul>
-                    <li><a href="settings.php?user_id=5">Paramètres</a></li>
-                    <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
-                    <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
-                </ul>
-
-            </nav>
+            <?php include 'header.php'; ?>
         </header>
+        
         <div id="wrapper">
             <?php
             /**
@@ -40,7 +26,7 @@
             /**
              * Etape 2: se connecter à la base de donnée
              */
-            $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+            include 'mysqli.php';
             ?>
 
             <aside>
@@ -94,40 +80,11 @@
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
                  */
-                while ($post = $lesInformations->fetch_assoc())
-                {
+               ?>
 
-                    // echo "<pre>" . print_r($post, 1) . "</pre>";
-                    ?>                
-                    <article>
-                    <h3>
-                        <time datetime=<?php echo $post['created']?>><?php $date = new DateTime($post['created']); 
-                                echo $date->format('d F Y à H:i');
-                                ?> </time>
-                    </h3>
-                    <address>par <?php echo $post['author_name'] ?></address>
-                    <div>
-                    <p><?php echo $post['content'] ?></p>
-                        <!-- <p>Ceci est un autre paragraphe</p>
-                        <p>... de toutes manières il faut supprimer cet 
-                            article et le remplacer par des informations en 
-                            provenance de la base de donnée</p> -->
-                    </div>                                            
-                    <footer>
-                        <small>♥ <?php echo $post['like_number'] ?></small>
-                        <?php 
-                        $tag = $post['taglist'];
-                        $arrayOfTags = explode(",",$tag);
-                        $index = 0;
-                        for ($index = 0; $index < count($arrayOfTags); $index++) {
-                            echo '<a href="">' . "#" . $arrayOfTags[$index] . '</a>' . ' ';
-                        }
-                    ?>
-                        <!-- <a href="">#piscitur</a>, -->
-                    </footer>
-                    </article>
-                <?php } ?>
-
+               <?php
+               include 'whilepost.php'
+               ?>
 
             </main>
         </div>

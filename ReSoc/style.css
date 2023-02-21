@@ -1,0 +1,287 @@
+body {
+  background-color: black;
+  font-family: Verdana, sans-serif;
+  font-size: medium;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: medium;
+}
+a:hover {
+  text-decoration: none;
+}
+
+body > header {
+  background-color: white;
+  display: flex;
+  width: 88em;
+  height: 5em;
+  margin: 0 auto 3em auto;
+  border-radius: 1em;
+}
+body > header img {
+  height: 2em;
+}
+body > header #menu {
+  display: flex;
+  width: 50%;
+  align-items: stretch;
+  border-left: 1px solid;
+}
+body > header #menu a {
+  flex: 1;
+  text-align: center;
+  padding-top: 2em;
+  border-right: 1px solid;
+}
+body > header a:hover {
+  background-color: transparent;
+}
+body > header ul {
+  list-style: none;
+}
+body > header #user {
+  margin-left: auto;
+  flex: 0.2;
+  border-left: 1px solid #99b;
+}
+body > header #user > a {
+  display: block;
+  text-align: center;
+  padding: 2em 0;
+  width: 100%;
+}
+body > header #user ul {
+  display: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  margin-left: -5em;
+  background-color: #fff;
+  border: 1px solid #99b;
+
+  z-index: 1;
+}
+body > header #user ul li a {
+  display: block;
+  width: 10em;
+  padding: 1em;
+  border-bottom: 1px solid #99b;
+}
+body > header #user:hover ul {
+  display: block;
+}
+
+#wrapper {
+  display: flex;
+  width: 80em;
+  height: 40em;
+  margin: 0 auto 2em auto;
+}
+#wrapper aside {
+  background-color: #fff;
+  flex: 1;
+  padding: 1em;
+  border-radius: 1em;
+}
+#wrapper aside img {
+  display: block;
+  width: 40%;
+  margin: auto;
+  border-radius: 1em;
+}
+
+#wrapper main {
+  flex: 3;
+  padding-left: 1em;
+  height: 80vh;
+  overflow-y: scroll;
+}
+#wrapper main article {
+  background-color: #fff;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 1em;
+}
+#wrapper main article h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 1em;
+}
+#wrapper main article time {
+  float: left;
+}
+#wrapper main article address {
+  text-align: right;
+  margin-bottom: 1em;
+}
+#wrapper main article p {
+  margin: 0;
+}
+#wrapper main article footer {
+  margin-top: 1em;
+  text-align: right;
+}
+#wrapper main article footer small {
+  float: left;
+}
+
+#wrapper.admin {
+  flex-direction: row-reverse;
+}
+#wrapper.admin aside {
+  flex: 1;
+  margin-left: 1em;
+  border-radius: 0;
+  padding: 0;
+}
+#wrapper.admin main {
+  flex: 2;
+  background-color: #fff;
+  border-radius: 0;
+  padding: 0;
+}
+#wrapper.admin h2 {
+  text-align: center;
+}
+#wrapper.admin h3 {
+  margin: 0;
+}
+#wrapper.admin nav {
+  text-align: right;
+}
+#wrapper.admin article {
+  border: 1px solid #ddd;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
+}
+#wrapper.admin article p {
+  float: left;
+  margin: 0;
+}
+
+.parameters dl dt {
+  float: left;
+  font-weight: bold;
+  line-height: 1.5em;
+  font-size: medium;
+}
+.parameters dl dd {
+  margin-left: 20em;
+  line-height: 1.5em;
+  font-size: medium;
+}
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.contacts article {
+  width: 25em;
+  height: 7em;
+  margin-right: 1em;
+}
+.contacts article img {
+  float: right;
+  height: 5em;
+}
+
+pre {
+  color: #aaa;
+}
+
+form dl dt {
+  float: left;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+form dl dd {
+  margin-left: 10em;
+  line-height: 1.5em;
+  margin-bottom: 1em;
+}
+form dl dd textarea {
+  width: 40em;
+  height: 15em;
+}
+
+/* Hamburger menu */
+
+#menu__toggle {
+  opacity: 0;
+}
+#menu__toggle:checked + .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked + .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+#menu__toggle:checked + .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+  left: 0 !important;
+}
+.menu__btn {
+  position: fixed;
+  top: 60px;
+  left: 45px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+  transition-duration: 0.25s;
+}
+.menu__btn > span::before {
+  content: "";
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: "";
+  top: 8px;
+}
+.menu__box {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background-color: black;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  transition-duration: 0.25s;
+}
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: white;
+  font-family: Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition-duration: 0.25s;
+}
+.menu__item:hover {
+  background-color: #1c1d1d;
+}
