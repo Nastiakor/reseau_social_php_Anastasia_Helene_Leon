@@ -10,6 +10,53 @@ function callDataBase () {
     return $mysqli;
 }
 
+function getTags () {
+    // Connect to database
+    $mysqli = callDataBase();
+    //Retrive label from tags table
+    $sqlQuery = "SELECT * FROM tags ORDER BY tags.label ASC";
+    $statement = $mysqli->query($sqlQuery);
+
+    $tags = [];
+    while ($row = $statement->fetch_assoc()) {
+        $tag = [
+            'id' => $row['id'],
+            'label' => $row['label'],
+        ];
+        $tags[] = $tag;
+    }
+    return $tags;
+}
+
+function getPostsbyTagId ($tagId) {
+    // Connect to database
+    $mysqli = callDataBase();
+
+    // Retrieve posts by tagId from posts table 
+    $sqlQuery = "
+        SELECT posts.content,
+        posts.created,
+        users.alias as alias,  
+        count(likes.id) as likes,  
+        GROUP_CONCAT(DISTINCT tags.label) AS taglist 
+        FROM posts_tags as filter 
+        JOIN posts ON posts.id=filter.post_id
+        JOIN users ON users.id=posts.user_id
+        LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
+        LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
+        LEFT JOIN likes      ON likes.post_id  = posts.id 
+        WHERE filter.tag_id = '$tagId' 
+        GROUP BY posts.id
+        ORDER BY posts.created DESC  
+        ";
+    $statement = $mysqli->query($sqlQuery);
+    if ( ! $statement)
+    {
+        echo("Échec de la requete : " . $mysqli->error);
+    }
+    return $posts = postsLoop($statement);
+}
+
 function getUser ($userId) {
     // Connect to database
     $mysqli = callDataBase();
@@ -59,7 +106,7 @@ function getUserPosts ($userId) {
     $sqlQuery = "
         SELECT posts.content, 
         posts.created, 
-        users.alias as alias, 
+        users.alias as alias,
         COUNT(likes.id) as likes, 
         GROUP_CONCAT(DISTINCT tags.label) AS taglist 
         FROM posts
