@@ -31,7 +31,7 @@
                     </p>
                     <p>
                         Pas de compte?
-                        <a href='registration.php'>Inscrivez-vous.</a>
+                        <a href='signUp.php'>Inscrivez-vous.</a>
                     </p>
     
                 </article>

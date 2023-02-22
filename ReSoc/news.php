@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <title>ReSoC - Actualités</title> 
         <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <a href='admin.php'><img src="img/logo_ada.png" alt="Logo de notre réseau social"/></a>
+            <a href=''><img src="img/logo_ada.png" alt="Logo de notre réseau social"/></a>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
