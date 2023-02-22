@@ -6,7 +6,7 @@
     <?php
     foreach ($tags as $tag) {
     ?>
-       <a href="tagNews.php?tag_id=<?=$tag['id']?>"><?=" #".$tag['label']." "?></a>
+       <a class="hashtag" href="tagNews.php?tag_id=<?=$tag['id']?>"><?=" #".$tag['label']." "?></a>
     <?php 
     } 
     ?>

@@ -5,13 +5,13 @@
 <main>
     <article>
         <h2>Poster un message</h2>
-        <form action="usurpedpost.php" method="post">
-            <input type='hidden' name='alias' value='???'>
+        <form action="userPost.php" method="post">
+            <input type='hidden' name='alias'>
             <dl>
                 <dt><label for='alias'>Auteur</label></dt>
                 <dd><select name='alias'>
                         <?php
-                        foreach ($listAuteurs as $id => $alias)
+                        foreach ($authorList as $id => $alias)
                             echo "<option value='$id'>$alias</option>";
                         ?>
                     </select></dd>

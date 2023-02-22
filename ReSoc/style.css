@@ -4,12 +4,16 @@ body {
   font-size: medium;
 }
 
-/* profil  */
 a {
   text-decoration: none;
   color: black;
-  font-weight: normal;
+  font-weight: bold;
   font-size: medium;
+}
+
+.hashtag {
+  text-decoration: none;
+  color: white;
 }
 a:hover {
   text-decoration: none;
@@ -19,13 +23,17 @@ a:hover {
 body > header {
   background-color: white;
   display: flex;
-  width: 88em;
+  width: 80em;
   height: 5em;
   margin: 0 auto 3em auto;
   border-radius: 1em;
 }
+
+/* logo ada  */
+
 body > header img {
   height: 2em;
+  padding: 1em;
 }
 body > header #menu {
   display: flex;

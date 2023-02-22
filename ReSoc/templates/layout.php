@@ -7,7 +7,7 @@
         <meta name="author" content="A REMPLIR">
         <meta name="description" content="Exercice created by Julien Falconnet">
         <title><?= $title ?></title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css?t=<?php echo time() ?>">
     </head>
     
     <body>
@@ -21,12 +21,12 @@
         </label>
         
         <ul class="menu__box">
-            <li><a class="menu__item" href="news.php">Actualités</a></li>   
+            <li><a class="menu__item" href="tagNews.php">Actualités</a></li>   
             <li><a class="menu__item" href="wall.php?user_id=<?= $user['id']?>">Mur</a></li>
             <li><a class="menu__item" href="feed.php?user_id=<?= $user['id']?>">Flux</a></li>
-            <li><a class="menu__item" href="tags.php?tag_id=">Mots-clés</a></li>
+            <li><a class="menu__item" href="userPost.php?user_id=<?= $user['id']?>">New Post</a></li>
         </ul>
-        <a href='admin.php'><img src="img/logo_ada.png" alt="Logo de notre réseau social"/></a>
+        <a href='homepage.php'><img src="img/logo_ada.png" alt="Logo de notre réseau social"/></a>
     </div>
     
     <nav id="user">
@@ -40,16 +40,7 @@
 </header>
 
 <div id="wrapper" class='profile'>
-    <aside>
-        <img src="img/ada_profile_pic.jpg" alt="Portrait de l'utilisatrice"/>
-        <section>
-            <h3>Présentation</h3>
-            <p>Sur cette page vous trouverez <?= $pageDescription ?> l'utilisatrice <?= $user['alias']?> n° <?= $user['id'] ?></p>
-        </section>
-        <div>
-
-        </div>
-    </aside>
+   
     <?= $content ?>
 </div>
 </body>
