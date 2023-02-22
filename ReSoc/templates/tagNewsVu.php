@@ -6,11 +6,13 @@
     <?php
     foreach ($tags as $tag) {
     ?>
-        <article >
-            <a href="tagNews.php?user_id=<?=$tag['id']?>"><?="#".$tag['label']." "?></a>
-        </article>
+       <a href="tagNews.php?tag_id=<?=$tag['id']?>"><?=" #".$tag['label']." "?></a>
     <?php 
     } 
+    ?>
+
+    <?php
+    require 'layoutPostsLoop.php';
     ?>
 </main>
 
