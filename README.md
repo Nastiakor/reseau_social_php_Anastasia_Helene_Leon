@@ -14,10 +14,10 @@ __*4<sup>ème</sup> projet proposé par [Ada Tech School](https://adatechschool.
   - Avoir un premier aperçu de la conception web, de la conception base de donnée et des problématiques d'un projet multi-langagues.
   
 ## Réalisation du projet
-#### Refactoring et architecture MVC
+### Refactoring et architecture MVC
    Le projet que nous avons reçu comme base de travail mélangeait 3 languages (PHP,HTML,MySQL) et contenait plusieurs erreurs. 
    Nous avons décidé d'appliquer l'architecture MVC pour réfactoriser le code et le rendre plus professionnel.
    Le MVC(Model View Controller) permet de structurer le code de façon modulaire afin qu'il devienne réutilisable et évolutif et de rendre le travail plus accessible en    équipe. (photo des fichier)
-#### Pour une consommation numérique plus résponsable 
+### Pour une consommation numérique plus résponsable
    Nous avons fait le choix d'un fond noir car un pixel noir consomme jusqu'à 60% d'énergie de moins qu'un pixel blanc.
    (image du site)
