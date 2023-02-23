@@ -21,8 +21,8 @@
             <?php
             if ($statement)
             {
-                echo "Votre inscription est un succès " . $new_alias ."! ";
-                echo "<a href='login.php'> Connectez-vous!</a>";
+                echo "Votre inscription est un succès" . $new_alias ."! ";
+                echo "<a href='login.php'> Connectez-vous</a>";
             }
             ?>
         </p>

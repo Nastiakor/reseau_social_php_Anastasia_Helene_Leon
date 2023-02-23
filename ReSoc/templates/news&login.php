@@ -13,29 +13,21 @@
         <form action="homepage.php" method="post">
             <input type='hidden'name='email'>
             <dl>
-                <dt><label for='email'>E-Mail</label></dt>
+                <dt><label class='homepageText' for='email'>E-Mail</label></dt>
                 <dd><input type='email'name='email'></dd>
-                <dt><label for='password'>Mot de passe</label></dt>
+                <dt><label class='homepageText' for='password'>Mot de passe</label></dt>
                 <dd><input type='password'name='password'></dd>
             </dl>
             <input type='submit'>
         </form>
         <p>
             <?php    
-            if (!$user OR $user["password"] != $passwdAVerifier)
-            {
-                echo "IMPOSTEUR: MAIL OU PASSWORD INVALIDES";
-                
-            } else  
-            {      
-                $_SESSION['connected_id']=$user['id'];
-                header("Location: feed.php?user_id=".$user['id']);
-            }
+        
             ?>
         </p>
-        <p>
+        <p class='homepageText'>
             Pas de compte?
-            <a href='signUp.php'>Inscrivez-vous</a>
+            <a class='homepageText' href='signUp.php'>Inscrivez-vous</a>
         </p>
     </div>
 </main>
