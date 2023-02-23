@@ -5,9 +5,9 @@
 ## Présentation du projet
 - 4<sup>ème</sup> projet proposé par [Ada Tech School](https://adatechschool.fr/).
 - __Dates:__ du 13 au 23 février 2023
-- *Collaborateurs*: [Hélène Veber](https://github.com/HeleneVeber), [Léon Yi](https://github.com/yileon-ada) et [Anastasia Korotkova](https://github.com/Nastiakor) 
-- Contraintes : Contexte technique imposé et récupérer un projet existant ( voir projet de base).
-- Objectifs : Avoir un premier aperçu de la conception web, de la conception base de donnée et des problématiques d'un projet multi-langagues.
+- __Collaborateurs:__ [Hélène Veber](https://github.com/HeleneVeber), [Léon Yi](https://github.com/yileon-ada) et [Anastasia Korotkova](https://github.com/Nastiakor) 
+- __Contraintes:__ Contexte technique imposé et récupérer un projet existant ( voir projet de base).
+- __Objectifs:__ Avoir un premier aperçu de la conception web, de la conception base de donnée et des problématiques d'un projet multi-langagues.
 
 
 
