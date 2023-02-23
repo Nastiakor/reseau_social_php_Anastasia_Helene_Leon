@@ -8,16 +8,16 @@ __*4<sup>ème</sup> projet proposé par [Ada Tech School](https://adatechschool.
 - __Collaborateurs:__ [Hélène Veber](https://github.com/HeleneVeber), [Léon Yi](https://github.com/yileon-ada) et [Anastasia Korotkova](https://github.com/Nastiakor) 
 - __Contraintes:__ 
   - Contexte technique imposé 
-  - récupérer un projet existant ( voir projet de base).
+  - récupérer un projet existant (voir projet de base).
 - __Objectifs:__ 
-  - Faire un site web dynamique qui construit les pages HTML à la demande grâce à une base de donnée.
-  - Avoir un premier aperçu de la conception web, de la conception base de donnée et des problématiques d'un projet multi-langagues.
+  - Faire un site web dynamique qui construit les pages HTML à la demande grâce à une base de données.
+  - Avoir un premier aperçu de la conception web, de la conception base de données et des problématiques d'un projet multi-langagues.
   
 ## Réalisation du projet
 ### Refactoring et architecture MVC
-   Le projet que nous avons reçu comme base de travail mélangeait 3 languages (PHP,HTML,MySQL) et contenait plusieurs erreurs. 
+   Le projet que nous avons reçu comme base de travail mélangeait 3 languages (PHP, HTML, MySQL) et contenait plusieurs erreurs. 
    Nous avons décidé d'appliquer l'architecture MVC pour réfactoriser le code et le rendre plus professionnel.
-   Le MVC(Model View Controller) permet de structurer le code de façon modulaire afin qu'il devienne réutilisable et évolutif et de rendre le travail plus accessible en 
+   Le MVC(Model-View-Controller) permet de structurer le code de façon modulaire afin qu'il devienne réutilisable et évolutif et de rendre le travail plus accessible en 
    
    ![Capture d’écran du 2023-02-23 16-38-48](https://user-images.githubusercontent.com/114987386/220957861-98af378f-b467-4a9a-b916-35ebc34057d4.png)
 
