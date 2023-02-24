@@ -8,7 +8,7 @@
     foreach ($users as $user) {
     ?>
         <article >
-            <img src="img/user.jpg" alt="blason"/>
+            <img src="img/user_pic.png" alt="blason"/>
             <h3><?= $user['alias']?></h3>
             <p><?= $user['id']?></p>
         </article>

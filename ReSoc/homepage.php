@@ -3,6 +3,8 @@ session_start();
 
 require 'src/model.php';
 
+$posts = getNews();
+
 // Check if email input is different from null
 $conexionProcess = isset($_POST['email']);
 
@@ -17,4 +19,5 @@ if ($conexionProcess) {
     
 $user = findUserByEmail($emailAVerifier, $passwdAVerifier); 
 
-require 'templates/userLogin.php';
+
+require 'templates/news&login.php';
