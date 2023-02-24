@@ -29,4 +29,5 @@ Cette image montre l'organisation de nos fichiers:
 
 ### Pour une consommation numérique plus résponsable
    Nous avons fait le choix d'un fond noir car un pixel noir consomme jusqu'à 60% d'énergie de moins qu'un pixel blanc.
-   (image du site)
+   
+![Capture d’écran du 2023-02-24 10-33-46](https://user-images.githubusercontent.com/114992758/221143931-6f3af06b-b17e-4913-a0c0-ab725c47692a.png)
